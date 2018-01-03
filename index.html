@@ -1,0 +1,160 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>Vue-Swatches | Help the uer picking beautiful colors</title><link rel=icon href=static/vue-logo.png type=image/x-icon><meta name=description content="Help the uer picking beautiful colors"><meta property=og:title content=Vue-Swatches><meta property=og:site_name content=Vue-Swatches><meta property=og:url content=https://saintplay.github.io/vue-swatches><meta property=og:description content="Help the uer picking beautiful colors!"><meta property=og:image content=https://saintplay.github.io/vue-swatches/static/vue-swatches.png><meta property=twitter:image content=https://saintplay.github.io/vue-swatches/static/vue-swatches.png><meta property=twitter:title content=Vue-Swatches><meta property=twitter:description content="Help the uer picking beautiful colors"><link href=static/css/app.69eece27218623fdb2c284710fdf7ce5.css rel=stylesheet></head><body><a class=github-corner href=https://github.com/saintplay/vue-swatches aria-label="View source on Github"><svg width=80 height=80 viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden=true><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path class=octo-arm d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill=currentColor style="transform-origin: 130px 106px;"></path><path class=octo-body d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill=currentColor></path><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></svg></a><div id=app><section class=hero><div class=brand__container><img class=brand__logo src=static/img/vue-logo.e1ea82c.png><span class=brand__name><h1 class="typo__h1 typo__h1--hero" :class="`color--${color}`"><span class=brand__vue>Vue</span> <span class=brand__swatches>Swatches</span></h1><small class=brand__version>v1.0.0-rc.5</small></span></div><div class=grid__row><div class=grid__column><h3 class="typo__h3 hero__subtitle">Help the user picking beautiful colors!</h3></div><div class=brand__colors__container><swatches :colors=brandColors :inline=true v-model=brandColor></swatches></div></div></section><div class=grid__row><div class="grid__column column--is-4 tablet--down--hidden"><ul class=nav :class="{ 'nav--sticky': isNavSticky }"><li class=nav__heading :class="`color--${color}`">Setup</li><li class=nav__element><a class="link nav__link" :class="{ 'nav__link--active': currentPosition === 'sub-getting-started' }" href=#sub-getting-started>Getting Started</a></li><li class=nav__heading :class="`color--${color}`"><a class="link blank__link" href=#examples>Examples</a></li><li class=nav__element><a class="link nav__link" :class="{ 'nav__link--active': currentPosition === 'sub-simple' }" href=#sub-simple>Simple</a></li><li class=nav__element><a class="link nav__link" :class="{ 'nav__link--active': currentPosition === 'sub-using-a-preset' }" href=#sub-using-a-preset>Using a Preset</a></li><li class=nav__element><a class="link nav__link" :class="{ 'nav__link--active': currentPosition === 'sub-using-a-custom-trigger' }" href=#sub-using-a-custom-trigger>Using a Custom Trigger</a></li><li class=nav__element><a class="link nav__link" :class="{ 'nav__link--active': currentPosition === 'sub-custom-colors' }" href=#sub-custom-colors>Custom Colors</a></li><li class=nav__element><a class="link nav__link" :class="{ 'nav__link--active': currentPosition === 'sub-nested-colors' }" href=#sub-nested-colors>Nested Colors</a></li><li class=nav__element><a class="link nav__link" :class="{ 'nav__link--active': currentPosition === 'sub-inline-mode' }" href=#sub-inline-mode>Inline Mode</a></li><li class=nav__element><a class="link nav__link" :class="{ 'nav__link--active': currentPosition === 'sub-inline-custom-u-i' }" href=#sub-inline-custom-u-i>Inline + Custom UI</a></li><li class=nav__element><a class="link nav__link" :class="{ 'nav__link--active': currentPosition === 'sub-using-exceptions' }" href=#sub-using-exceptions>Using Exceptions</a></li><li class=nav__heading :class="`color--${color}`"><a class="link blank__link" href=#presets>Presets</a></li><li class=nav__element><a class="link nav__link" :class="{ 'nav__link--active': currentPosition === 'sub-basic' }" href=#sub-basic>Basic</a></li><li class=nav__element><a class="link nav__link" :class="{ 'nav__link--active': currentPosition === 'sub-text' }" href=#sub-text>Text</a></li><li class=nav__element><a class="link nav__link" :class="{ 'nav__link--active': currentPosition === 'sub-material-colors' }" href=#sub-material-colors>Material Colors</a></li><li class=nav__heading :class="`color--${color}`">API</li><li class=nav__element><a class="link nav__link" :class="{ 'nav__link--active': currentPosition === 'sub-props' }" href=#sub-props>Props</a></li><li class=nav__element><a class="link nav__link" :class="{ 'nav__link--active': currentPosition === 'sub-events' }" href=#sub-events>Events</a></li><li class=nav__element><a class="link nav__link" :class="{ 'nav__link--active': currentPosition === 'sub-slots' }" href=#sub-slots>Slots</a></li></ul></div><div class="grid__column column--is-12 column--is-desktop-8"><div class=grid__row><div class=grid__column><section id=sub-getting-started data-section><h1 class=typo__h1 :class="`color--${color}`">Getting started</h1><hr class=typo__hr><div class=grid__row><div class=grid__column><h2 class=typo__h2 :class="`color--${color}`">Installation</h2><h3 class=typo__h3 :class="`color--${color}`">via npm</h3><pre class=language-bash><code>npm install vue-swatches --save
+</code></pre><h3 class=typo__h3 :class="`color--${color}`">via yarn</h3><pre class=language-bash><code>yarn add vue-swatches
+</code></pre><h3 class=typo__h3 :class="`color--${color}`">via CDN</h3><pre class=language-html><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/vue-swatches/dist/vue-swatches.min.css&quot;&gt;
+&lt;script src=&quot;https://unpkg.com/vue-swatches&quot;&gt;&lt;/script&gt;
+</code></pre></div></div><div class=grid__row><div class=grid__column><h2 class=typo__h2 :class="`color--${color}`">Basic usage</h2><pre class=language-html><code>&lt;!-- Vue component --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;swatches v-model=&quot;color&quot; /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import Swatches from &#39;vue-swatches&#39;
+
+  // Import the styles too, globally
+  import &quot;vue-multiselect/dist/vue-multiselect.min.css&quot;
+
+  export default {
+    components: { Swatches }, // window.VueSwatches.default - from CDN
+    data () {
+      return {
+        color: &#39;#1CA085&#39;
+      }
+    }
+  }
+&lt;/script&gt;</code></pre></div></div></section></div></div><div class=grid__row><div class=grid__column><section id=examples><h1 class=typo__h1 :class="`color--${color}`">Examples</h1><hr class=typo__hr><div class=grid__row><div class=grid__column><h2 class=typo__h2 :class="`color--${color}`" id=sub-simple data-section>Simple</h2><div class=examplerow><div><simple></simple></div><div class=is-cleared><div><pre class=language-html v-pre><code>
+&lt;div class=&quot;form__field&quot;&gt;
+  &lt;div class=&quot;form__label&quot;&gt;
+    &lt;strong&gt;Please choose a color:&lt;/strong&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form__input&quot;&gt;
+    &lt;swatches v-model=&quot;color&quot; popover-to=&quot;left&quot;&gt;&lt;/swatches&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div></div></div></div></div><div class=grid__row><div class=grid__column><h2 class=typo__h2 :class="`color--${color}`" id=sub-using-a-preset data-section>Using a Preset</h2><p>Vue Swatches has a bunch of <a href=#presets>presets</a> ready to use. Make sure to check it out!</p><div class=examplerow><div><preset-simple></preset-simple></div><div class=is-cleared><div><pre class=language-html v-pre><code>
+&lt;div class=&quot;form__field&quot;&gt;
+  &lt;div class=&quot;form__label&quot;&gt;
+    &lt;strong&gt;Please choose a color:&lt;/strong&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form__input&quot;&gt;
+    &lt;swatches v-model=&quot;color&quot; colors=&quot;text-advanced&quot; popover-to=&quot;left&quot;&gt;&lt;/swatches&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div></div></div></div></div><div class=grid__row><div class=grid__column><h2 class=typo__h2 :class="`color--${color}`" id=sub-using-a-custom-trigger data-section>Using a Custom Trigger</h2><p>You can use your custom trigger. Useful to show <code>buttons</code>, <code>icons</code>, custom <code>inputs</code>!</p><div class=examplerow><div><custom-trigger></custom-trigger></div><div class=is-cleared><div><pre class=language-html v-pre><code>
+&lt;div class=&quot;form__field&quot;&gt;
+  &lt;div class=&quot;form__input&quot;&gt;
+    &lt;swatches v-model=&quot;color&quot;&gt;
+      &lt;input slot=&quot;trigger&quot; :value=&quot;color&quot; readonly&gt;
+    &lt;/swatches&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div></div></div></div></div><div class=grid__row><div class=grid__column><h2 class=typo__h2 :class="`color--${color}`" id=sub-custom-colors data-section>Custom Colors</h2><div class=examplerow><div><custom-colors></custom-colors></div><div class=is-cleared><div><pre class=language-html v-pre><code>
+&lt;div class=&quot;form__field&quot;&gt;
+  &lt;div class=&quot;form__label&quot;&gt;
+    &lt;strong&gt;Please choose a color:&lt;/strong&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form__input&quot;&gt;
+    &lt;swatches v-model=&quot;color&quot; :colors=&quot;colors&quot; row-length=&quot;5&quot; popover-to=&quot;left&quot;&gt;&lt;/swatches&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div><div><pre class=language-javascript v-pre><code>import Swatches from 'vue-swatches'
+
+export default {
+  components: {
+    Swatches
+  },
+  data () {
+    return {
+      color: '#F64272',
+      colors: ['#F64272', '#F6648B', '#F493A7', '#F891A6', '#FFCCD5' ]
+    }
+  }
+}
+</code></pre></div></div></div></div></div><div class=grid__row><div class=grid__column><h2 class=typo__h2 :class="`color--${color}`" id=sub-nested-colors data-section>Nested Colors</h2><p>You can use your own colors in a nested arrays.</p><div class=examplerow><div><nested-colors></nested-colors></div><div class=is-cleared><div><pre class=language-html v-pre><code>
+&lt;div class=&quot;form__field&quot;&gt;
+  &lt;div class=&quot;form__label&quot;&gt;
+    &lt;strong&gt;Please choose a color:&lt;/strong&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form__input&quot;&gt;
+    &lt;swatches v-model=&quot;color&quot; :colors=&quot;colors&quot; row-length=&quot;5&quot; popover-to=&quot;left&quot;&gt;&lt;/swatches&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div><div><pre class=language-javascript v-pre><code>import Swatches from 'vue-swatches'
+
+export default {
+  components: {
+    Swatches
+  },
+  data () {
+    return {
+      color: '#b9f5f1',
+      colors: [
+        ['#F64272', '#F6648B', '#F493A7', '#F891A6', '#FFCCD5' ],
+        ['#8b5aff', '#a27bff', '#b99cff', '#d0bdff', '#e8deff' ],
+        ['#51e5db', '#74ebe3', '#96f0ea', '#b9f5f1', '#dcfaf8' ],
+        ['#ffa51a', '#ffb748', '#ffc976', '#ffdba3', '#ffedd1' ]
+      ]
+    }
+  }
+}
+</code></pre></div></div></div></div></div><div class=grid__row><div class=grid__column><h2 class=typo__h2 :class="`color--${color}`" id=sub-inline-mode data-section>Inline Mode</h2><p>Inline Mode hides the trigger and show all the swatches right away! Useful for Advanced UI</p><div class=examplerow><div><inline-simple></inline-simple></div><div class=is-cleared><div><pre class=language-html v-pre><code>
+&lt;div class=&quot;form__field&quot;&gt;
+  &lt;div class=&quot;form__label&quot;&gt;
+    &lt;strong&gt;Please choose a color:&lt;/strong&gt;
+    &lt;swatches v-model=&quot;color&quot; inline&gt;&lt;/swatches&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div></div></div></div></div><div class=grid__row><div class=grid__column><h2 class=typo__h2 :class="`color--${color}`" id=sub-inline-custom-u-i data-section>Inline + Custom UI</h2><div class=examplerow><div><inline-advanced></inline-advanced></div><div class=is-cleared><div><pre class=language-html v-pre><code>
+&lt;div class=&quot;form__field&quot;&gt;
+  &lt;div class=&quot;form__label&quot;&gt;
+    &lt;button @click=&quot;$modal.show('my-custom-ui')&quot;&gt;Please choose a color&lt;/button&gt;
+    &lt;modal name=&quot;my-custom-ui&quot; :adaptive=&quot;true&quot; height=&quot;192&quot;&gt;
+      &lt;div class=&quot;custom-ui-class&quot;&gt;
+        &lt;swatches v-model=&quot;color&quot; inline&gt;&lt;/swatches&gt;
+      &lt;/div&gt;
+    &lt;/modal&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div></div></div></div></div><div class=grid__row><div class=grid__column><h2 class=typo__h2 :class="`color--${color}`" id=sub-using-exceptions data-section>Using Exceptions</h2><p>You can hide or disable colors, using <code>expcetions</code> and <code>exception-mode</code></p><div class=examplerow><div><exceptions></exceptions></div><div class=is-cleared><div><pre class=language-html v-pre><code>
+&lt;div class=&quot;form__field&quot;&gt;
+  &lt;div class=&quot;form__label&quot;&gt;
+    &lt;strong&gt;Please choose a color:&lt;/strong&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form__input&quot;&gt;
+    &lt;swatches
+      v-model=&quot;color&quot;
+      colors=&quot;text-basic&quot;
+      :exceptions=&quot;exceptions&quot;
+      exception-mode=&quot;disabled&quot;
+      row-length=&quot;4&quot;
+      show-border
+      popover-to=&quot;left&quot;
+    &gt;&lt;/swatches&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div><div><pre class=language-javascript v-pre><code>import Swatches from 'vue-swatches'
+
+export default {
+  components: {
+    Swatches
+  },
+  data () {
+    return {
+      color: '#FFCC00',
+      exceptions: ['#FFFFFF', '#000000']
+    }
+  }
+}
+</code></pre></div></div></div></div></div></section></div></div><div class=grid__row><div class=grid__column><section id=presets><h1 class=typo__h1 :class="`color--${color}`">Presets</h1><hr class=typo__hr><div class=grid__row><div class=grid__column><h2 class=typo__h2 :class="`color--${color}`" id=sub-basic data-section>Basic</h2><h3>Basic Colors (basic)</h3><p>A basic collection of colors for general purposes.</p><div><div><preset-example colors=basic></preset-example></div></div></div></div><div class=grid__row><div class=grid__column><h2 class=typo__h2 :class="`color--${color}`" id=sub-text data-section>Text</h2><h3>Basic Colors for Text (text-basic)</h3><p>A basic collection of colors for styling text.</p><p>This preset also sets <code>showBorder</code></p><div><div><preset-example colors=text-basic></preset-example></div></div><h3>Advanced Colors for Text (text-advanced)</h3><p>A complete collection of colors for styling text. This preset uses nested colors.<br>Inspired by <strong>Google Docs</strong></p><p>This preset also sets <code>borderRadius</code>, <code>rowLength</code>, <code>swatchSize</code> and <code>spacingSize</code></p><div><div><preset-example colors=text-advanced></preset-example></div></div></div></div><div class=grid__row><div class=grid__column><h2 class=typo__h2 :class="`color--${color}`" id=sub-material-colors data-section>Material Colors</h2><h3>Basic Material Colors (material-basic)</h3><p>A basic collection of material colors.</p><div><div><preset-example colors=material-basic></preset-example></div></div><h3>Light Material Colors (material-light)</h3><p>A basic collection of light material colors. Useful to show dark text inside.</p><div><div><preset-example colors=material-light></preset-example></div></div><h3>Dark Material Colors (material-dark).</h3><p>A basic collection of dark material colors. Useful to show light text inside.</p><div><div><preset-example colors=material-dark></preset-example></div></div></div></div></section></div></div><hr class=typo__hr><h2 class=typo__h2 id=sub-props data-section>Props</h2><div class=grid__row><div class=grid__column><div class=table__container id=table__container__props><table class="table table--full-width"><thead><tr class=table__tr><th class="table__th table__th__medium">Name</th><th class="table__th table__th__medium">Type</th><th class="table__th table__th__medium">Default</th><th class="table__th table__th__medium">Examples</th><th class="table__th table__th__large">Description</th></tr></thead><tbody><tr class=table__tr><td class=table__td><strong>background-color</strong></td><td class=table__td><kbd>String</kbd></td><td class=table__td><kbd>'#ffffff'</kbd></td><td class=table__td><ul><li><kbd>'#ffffff'</kbd></li><li><kbd>'#cccccc'</kbd></li></ul></td><td class=table__td>Sets the background color.</td></tr><tr class=table__tr><td class=table__td><strong>close-on-select</strong></td><td class=table__td><kbd>Boolean</kbd></td><td class=table__td><kbd>true</kbd></td><td class=table__td><ul><li><kbd>true</kbd></li><li><kbd>false</kbd></li></ul></td><td class=table__td>Hides the popover after select a color.</td></tr><tr class=table__tr><td class=table__td><strong>colors</strong></td><td class=table__td><kbd>Array</kbd>, <kbd>Object</kbd> or <kbd>String</kbd></td><td class=table__td><kbd>'#basic'</kbd></td><td class=table__td><ul><li><kbd>'material-light'</kbd></li><li><kbd>'text-advanced'</kbd></li></ul></td><td class=table__td>The colors that will be shown in the swatches.<br>You should always use <strong>6-digits hex</strong> colors.<ul class=list__description><li>Use an <kbd>Array</kbd> for custom colors or custom nested colors.</li><li>Use an <kbd>String</kbd> for preset names.</li><li>Use an <kbd>Object</kbd> for preset Objects.</li></ul></td></tr><tr class=table__tr><td class=table__td><strong>exceptions</strong></td><td class=table__td><kbd>Array</kbd></td><td class=table__td><kbd>[]</kbd></td><td class=table__td><ul><li><kbd>['#ffffff', '#000000']</kbd></li><li><kbd>['#f102a3', '#1b22ee', '#fc2343']</kbd></li></ul></td><td class=table__td>Colors that will be excluded.<br>You should always use <strong>6-digits hex</strong> colors.<ul class=list__description><li>Use an <kbd>Array</kbd> for custom colors or custom nested colors.</li><li>Use a <kbd>String</kbd> for preset names.</li><li>Use an <kbd>Object</kbd> for preset Objects.</li></ul></td></tr><tr class=table__tr><td class=table__td><strong>exception-mode</strong></td><td class=table__td><kbd>String</kbd></td><td class=table__td><kbd>'disabled'</kbd></td><td class=table__td><ul><li><kbd>'disabled'</kbd></li><li><kbd>'hidden'</kbd></li></ul></td><td class=table__td>The behaviour of the exceptions. Use <kbd>'disabled'</kbd> or <kbd>'hidden'</kbd><ul class=list__description><li>Use <kbd>'disabled'</kbd> to disable the exceptions. User won't be able to pick the color.</li><li>Use <kbd>'hidden'</kbd> to hide the exceptions. User won't be able to see the color.</li></ul></td></tr><tr class=table__tr><td class=table__td><strong>inline</strong></td><td class=table__td><kbd>Boolean</kbd></td><td class=table__td><kbd>false</kbd></td><td class=table__td><ul><li><kbd>true</kbd></li><li><kbd>false</kbd></li></ul></td><td class=table__td>Wheter the swatches should be shown in a popover or not (inline).<ul class=list__description><li>Use <strong>Inline</strong> to hide the trigger and show the swatches right away.</li><li>Use <strong>Popover</strong> to show the swatches in a Popover after clicking the trigger.</li></ul></td></tr><tr class=table__tr><td class=table__td><strong>max-height</strong></td><td class=table__td><kbd>Number</kbd> or <kbd>String</kbd></td><td class=table__td><kbd>false</kbd></td><td class=table__td><ul><li><kbd>'300'</kbd></li><li><kbd>400</kbd></li><li><kbd>'600'</kbd></li></ul></td><td class=table__td>The maximum height for the popover.<br>This don't affect inline mode.</td></tr><tr class=table__tr><td class=table__td><strong>shapes</strong></td><td class=table__td><kbd>String</kbd></td><td class=table__td><kbd>'squares'</kbd></td><td class=table__td><ul><li><kbd>'squares'</kbd></li><li><kbd>'circles'</kbd></li></ul></td><td class=table__td>The shape that will be used for the swatches and the trigger. Use <kbd>'circles'</kbd> or <kbd>'squares'</kbd></td></tr><tr class=table__tr><td class=table__td><strong>popover-to</strong></td><td class=table__td><kbd>String</kbd></td><td class=table__td><kbd>'right'</kbd></td><td class=table__td><ul><li><kbd>'right'</kbd></li><li><kbd>'left'</kbd></li></ul></td><td class=table__td>Set the position of the popover. Use <kbd>'right'</kbd> or <kbd>'left'</kbd><br>This don't affect inline mode.</td></tr><tr class=table__tr><td class=table__td><strong>row-length</strong></td><td class=table__td><kbd>Number</kbd> or <kbd>String</kbd></td><td class=table__td><kbd>4</kbd></td><td class=table__td><ul><li><kbd>10</kbd></li><li><kbd>6</kbd></li><li><kbd>'8'</kbd></li></ul></td><td class=table__td>The number of swatches to show in a row.<br>This don't affect inline mode.</td></tr><tr class=table__tr><td class=table__td><strong>show-border</strong></td><td class=table__td><kbd>Boolean</kbd></td><td class=table__td><kbd>false</kbd></td><td class=table__td><ul><li><kbd>true</kbd></li><li><kbd>false</kbd></li></ul></td><td class=table__td>Whether the swatches should be showing borders or not.<br>Useful for making lighter colors more noticeable.</td></tr><tr class=table__tr><td class=table__td><strong>swatch-size</strong></td><td class=table__td><kbd>Number</kbd> or <kbd>String</kbd></td><td class=table__td><kbd>42</kbd></td><td class=table__td><ul><li><kbd>30</kbd></li><li><kbd>'24'</kbd></li><li><kbd>'36'</kbd></li></ul></td><td class=table__td>Sets the swatches size.</td></tr><tr class=table__tr><td class=table__td><strong>value</strong></td><td class=table__td><kbd>String</kbd></td><td class=table__td><kbd>null</kbd></td><td class=table__td><ul><li><kbd>30</kbd></li><li><kbd>'24'</kbd></li><li><kbd>'36'</kbd></li></ul></td><td class=table__td>Sets the selected color.</td></tr></tbody></table></div></div></div><h2 class=typo__h2 id=sub-events data-section>Events</h2><div class=grid__row><div class=grid__column><div class=table__container><table class="table table--full-width"><thead><tr class=table__tr><th class="table__th table__th__medium">Name</th><th class="table__th table__th__medium">Payload</th><th class="table__th table__th__large">Description</th></tr></thead><tbody><tr class=table__tr><td class=table__td><strong>@input</strong></td><td class=table__td><kbd>value</kbd></td><td class=table__td>Emitted after when <kbd>this.value</kbd> changes</td></tr><tr class=table__tr><td class=table__td><strong>@close</strong></td><td class=table__td><kbd>value</kbd></td><td class=table__td>Emitted when the popover is closed.</td></tr></tbody></table></div></div></div><h2 class=typo__h2 id=sub-slots data-section>Slots</h2><div class=grid__row><div class=grid__column><div class=table__container><table class="table table--full-width"><thead><tr class=table__tr><th class="table__th table__th__medium">Name</th><th class="table__th table__th__large">Description</th></tr></thead><tbody><tr class=table__tr><td class=table__td><strong>trigger</strong></td><td class=table__td>Use to replace the trigger.<br>Useful for showing custom icons, buttons or inputs.</td></tr></tbody></table></div></div></div></div></div><section class="footer has-text-centered"><h4 class=typo__h4>Created by<strong><a class=typo__link href=https://github.com/saintplay target=_blank> Diego Jara</a></strong></h4></section></div><script>WebFontConfig = {
+  google: { families: [ 'Open Sans:400', 'Quicksand:400,700' ] }
+}
+;(function() {
+  var wf = document.createElement('script')
+  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+    '://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js'
+  wf.type = 'text/javascript'
+  wf.async = 'true'
+  var s = document.getElementsByTagName('script')[0]
+  s.parentNode.insertBefore(wf, s)
+})()</script><script type=text/javascript src=static/js/app.fe9982900d87ad834d37.js></script></body></html>
